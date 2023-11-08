@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Deployment ML Project</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel= "stylesheet" type= "text/css" href= "..\static/css\style.css">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>CLASSIFICADOR DE CÂNCER DE MAMA</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+    <input type="text" name="radius" placeholder="(radius mean of distances from center to points on the perimeter)" required="required" />
+    <input type="text" name="texture" placeholder="(texture standard deviation of gray-scale values)" required="required" />
+		<input type="text" name="perimeter" placeholder="perimeter" required="required" />
+		<input type="text" name="area" placeholder="area" required="required" />
+    <input type="text" name="smoothness" placeholder="(smoothness local variation in radius lengths)" required="required" />
+    <input type="text" name="compactness" placeholder="(compactness)" required="required" />
+		<input type="text" name="concavity" placeholder=" (concavity severity of concave portions of the contour)" required="required" />
+		<input type="text" name="concave_points" placeholder="(number of concave portions of the contour)" required="required" />
+    <input type="text" name="symmetry" placeholder="symmetry" required="required" />
+    <input type="text" name="fractal dimension" placeholder="('fractal coastline approximation' - 1)" required="required" />
+
+        <button type="submit" class="botao">Classificar</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
